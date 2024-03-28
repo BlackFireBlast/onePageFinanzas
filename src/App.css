@@ -1,14 +1,14 @@
-
 *{
   text-align: center;
-}
+} 
 @font-face {
   font-family: "mv-boli";
   src: url("./fonts/mv-boli.ttf") format("truetype");
 }
 
 .boton {
-  color:white;
+  /* color:rgb(2, 1, 1); */
+  color:rgba(240, 248, 255, 0.836);
   width:180px;
   height: 48px;
   border: 0px;
@@ -16,43 +16,31 @@
   border-radius: 30px;
   font-size: 22px;
   background-image:linear-gradient(90deg,#F54D05 5%,#F78C12 95%);
+  transition: all 0.2s ease-in;
 }
 .b-contactar {
-  /* width:140px ; */
   margin: 0px;
   color:rgb(255, 255, 255) !important;
 }
 .boton:hover {
-
+color:white;
 background-image:linear-gradient(180deg,#F54D05 5%,#F78C12 95%);
-
 }
 .botonFormulario{
   width:90px ;
   height:36px ;
 }
-
-/* footer{
-  width: 100%;
-  height: 10vh;
-  background-color: rgb(0, 1, 1);
-} */
-
 h1{
   margin: 0px;
 }
-
-
 .imagenPrincipal{
   background-image: url('./imageFondo.jpg');
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  
   min-height:400px ; 
 }
 .navbar {
-  /* background-color: transparent !important; */
   position: absolute;
   width: 100%;
 }
@@ -62,8 +50,6 @@ h1{
 }
 .nav-link {
   color:black;
-  /* font-weight: bold; */
-  /* font-family:"mv-boli" ; */
   font-size: 20px;
 }
 
@@ -113,15 +99,11 @@ h1{
   background-color: rgb(34, 0, 255);
   height:7px;
   width: 100%;
-  /* background-image:linear-gradient(90deg,#F54D05 5%,#F78C12 95%); */
   background-image: linear-gradient(90deg,#C7F2ED 30%,#5AEDD9,#2BA4EC);
 }
-
-
 /* Sección video */
 .video {
   background-color: #001B2D;
-  /* height: min100vh; */
   padding-top:60px ;
   padding-left: 20%;
   padding-right: 20%;
@@ -146,11 +128,9 @@ h1{
   padding: 30px 0px;
 }
 .p2Garantizado {
-
   font-size: 24px;
   padding-bottom: 25px;
 }
-
 
 /* preguntas frecuentes */
 .preguntas-frecuentes {
@@ -176,10 +156,9 @@ height: 70px;
 right:20px;
 bottom:20px;
 background-color: green; 
-/* border: 1px solid red; */
 border-radius:50% 0% 50% 0;
-/* opacity:1; */
- }
+}
+
 /*form */
 .formSection {
   background-color: #421983;
@@ -188,7 +167,6 @@ border-radius:50% 0% 50% 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding: 40px 0px; */
   min-height: 450px;
   padding-top: 120px;
 }
@@ -215,24 +193,19 @@ h2 {
   width: 300px;
   height: 34px;
 }
+
 /* Testimonios */
 .testimonios {
   background-color:#edeeff;
   padding: 50px 120px;
-  /* height: 20vh; */
 }
 .ImagenTestimonio {
-  /* max-width:200px; */
-  width: 90%;
+  width: 100%;
   border-radius: 50%;
-}
-.ImagenTestimonio:hover{
-  border: 3px solid white;
 }
 .ocupacion {
   font-size: 1.5rem;
   font-weight: bold;
-  /* font-family: "mv-boli"; */
 }
 .tarjeta {
   margin:0px 0px 20px 0px;
@@ -247,7 +220,6 @@ h2 {
 }
 .estrellas {
   width: 100%;
-
 }
 
 /* Footer */
@@ -268,17 +240,13 @@ h2 {
   height: 1px;
   width: 80%;
   background-color:#888888;
-  margin: 50px 0px;
-  
+  margin: 50px 0px;  
  }
  .terminos {
   color:black;
   margin: 0px;
   color:#888888;
  }
-
-
- 
 
 /* ----------------------------------------------------------------------- */
 @media screen and (max-width: 767px) {
@@ -288,12 +256,6 @@ h2 {
   .simbolo1,.simbolo2,.simbolo3{
     font-size: 40px;
   }
-  /* .simbolo1{
-    padding-top: 70px;
-  }
-  .simbolo3 {
-    padding-bottom: 50px;
-  } */
   .imagenPrincipal {
     min-height:360px ;
     background-size: 140%;
@@ -313,20 +275,15 @@ top:10px;
   background-color: white;
 }
 .b-contactar {
-  /* width:140px ; */
   margin: 0px 0px 20px 0px;
 }
-
-  .video {
-   
+  .video {   
     padding-left: 10%;
     padding-right: 10%;
-  }
-  
+  } 
    .gif { 
       width:340px;
     } 
-  
   /*form */
 .formSection {
   padding-top: 40px;
@@ -349,9 +306,6 @@ top:10px;
      }
 }
 
-
-
-
 /* ----------------------------------------------------------------------- */
   /* 516 400  */
 @media screen and (max-width: 425px) {
@@ -362,9 +316,6 @@ top:10px;
     min-height:380px ;
     padding-top: 40px;
     background-size: 180%;
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
-
   }
   .simbolo1,.simbolo2,.simbolo3{
     font-size: 30px;
