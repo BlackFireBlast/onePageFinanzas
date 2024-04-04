@@ -3,10 +3,13 @@ import './App.css';
 import { useEffect,useState } from "react"
 import Boton from './components/Boton';
 import Testimonio from './components/Testimonio';
+import {useForm} from 'react-hook-form'
 const apiKey = process.env.REACT_APP_API_KEY
 
 function App() {
     const [gifUrl,setGifUrl] = useState();
+    const {register,formState:{errors},handleSubmit,reset} =useForm()
+
     useEffect(()=>{
         // setGifUrl( "https://imgs.search.brave.com/O1jWj5GDnSgw7PWDzvorLh51H26BVNnxb8f-G9bOlpU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ2/Mzg3MTA3OS92ZWN0/b3IvcGFuZGEtbG9n/by1pc29sYXRlZC1w/YW5kYS1vbi13aGl0/ZS1iYWNrZ3JvdW5k/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1nb1VHY0lTUHFS/UUpnR3JhLVVBcF9v/RFo0S2NqMjJic2hl/aFZSNEFfdEVFPQ")
         // fetch("https://api.giphy.com/v1/gifs/random?api_key=Rpepy3DtQhnSFPT7Cb2GtbLJLRHIreHr")
@@ -20,6 +23,11 @@ function App() {
             setGifUrl(gif)
         })
     },[])
+
+    function insertar(data){
+      console.log(data)
+      reset()
+    }
 
   return (
     <div >
@@ -143,16 +151,82 @@ function App() {
                   src='../../assets/F.png'
                   alt='Imagen Men'/>
             <h2>Mejoremos tus finanzas</h2>
-            <form  className='form'>
-                <input type='text' placeholder='Nombre Completo' />
-                <input type='email' placeholder='Correo Eléctronico'/>
-                <input type='' placeholder='WhatsApp' />
+            <form  className='form' onSubmit={handleSubmit(insertar)}>
+
+                <div className='contenedorInputError'>
+                    <input 
+                    type='text' 
+                    placeholder='Nombre Completo'
+                    {...register("Nombre",
+                    {required:true,minLength:3,maxLength:20})
+                    }
+                    />
+                    {
+                    errors.Nombre?.type ==="required" && (                   
+                    <p className='mensajeError'>Ingresa tu nombre</p>
+                    )
+                    }
+                    {
+                    errors.Nombre?.type ==="minLength" && (                   
+                    <p className='mensajeError'>Ingresa mínimo 3 caracteres</p>
+                    )
+                    }
+                    {
+                    errors.Nombre?.type ==="maxLength" && (
+                      <p className="mensajeError">Ingresa máximo 20 caracteres</p>
+                    )
+                    }
+                </div>
+
+                <div className='contenedorInputError'>
+                    <input type='email' 
+                    placeholder='Correo Eléctronico'
+                    {
+                      ...register("correo",{
+                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                        required:true
+                      })
+                    }
+                    />
+                    {
+                      errors.correo?.type === "required" && (
+                        <p className="mensajeError">Este campo es requerido</p>
+                      )
+                    }
+                    {
+                      errors.correo?.type === "pattern" && (
+                        <p className="mensajeError">El formato del correo no es válido</p>
+                      )
+                    }
+
+                </div>
+
+                <div className='contenedorInputError'>
+                    <input type='tel' placeholder='WhatsApp' 
+                    {...register("numero",
+                    {required:true,minLength:8})
+                    }
+                    />
+                    {
+                      errors.numero?.type === "required" && (
+                        <p className="mensajeError">Este campo es requerido</p>
+                      )
+                    }
+                    {
+                      errors.numero?.type === "minLength" && (
+                        <p className="mensajeError">Ingresa mínimo 8 caracteres</p>
+                      )
+                    }
+
+                </div>
+
+                
                 <button className='boton botonFormulario'>Enviar</button>
             </form>
       </section>
 
-      <section className='testimonios '>
-        <div className='row '>
+      <section className='testimonios d-flex justify-content-center '>
+        <div className='row testimonios-row '>
 
             <Testimonio 
               imagen='A.png'
